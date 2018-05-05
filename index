@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>江南新城</title>
+</head>
+<link rel="stylesheet" href="CSS/index.css">
+<link rel="stylesheet" href="CSS/swiper.min.css">
+<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="layui/css/layui.css">
+<script src="bootstrap-3.3.7/js/tests/vendor/jquery.min.js"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+
+<style>
+    /* ————即时查找———— */
+    a:link,a:visited{
+        text-decoration: none;
+        color: black;
+    }
+    /* ————即时查找———— */
+
+    /* ————头部标题———— */
+    .index_title{
+        height: 45px;
+        width: 100%;
+        background-color: #eeeeee;
+    }
+    .index_title p{
+        color: #6e6e6e;
+        font-size: 16px;
+        margin-top: 10px;
+        position: absolute;
+        margin-left: 35%;
+    }
+    .index_title img{
+        width: 30px;
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+    /* ————头部标题———— */
+
+    div,li,ul {
+        margin:0;
+        padding:0;
+    }
+    ul li {
+        list-style:none;
+    }
+    .swiper1 {
+        width: 100%;
+    }
+    .swiper1 .selected {
+        color: #ec5566;
+        border-bottom: 2px solid #ec5566;
+    }
+    .swiper1 .swiper-slide {
+        /*text-align: center;*/
+        font-size: 16px;
+        height: 50px;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .swiper2 {
+        width: 100%;
+    }
+    .swiper2 .swiper-slide {
+        height: calc(100vh - 50px);
+        /*background-color: #ccc;*/
+        color: #fff;
+        /*text-align: center;*/
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+</style>
+
+<body>
+
+<!-- 弹出查找输入框 -->
+<div style="display: none" id="find">
+    <div style="z-index: 1045;position: absolute;text-align: center;padding-top: 10px;padding-left: 15px">
+        <!-- 搜索 -->
+        <div class="g-container">
+            <form action="" class="basic-grey">
+                <div class="form-group">
+                    <div class="Companies">
+                        <form action="#" method="get" onsubmit="submitIndexInfo()">
+                            <input id="Button1" onclick="submitIndexInfo()" type="button" value="查找" style="position: fixed;z-index: 1045;
+                            border-radius: 4px;font-size: 10px;width: 50px;height: 25px;margin-left: 250px;margin-top: 5px" />
+                            <input class="form-control" type="text" placeholder="请选择" id="js-groupId"  style="position: fixed;margin-left: 20px;width:200px;height: 30px;font-size: 12px" class="form-control">
+                            <input type="hidden" id="groupId">
+                            <ul id="groupid" style="width:180px;margin-left: 20px;font-size: 10px;background-color: white;position: fixed;margin-top: 27px" >
+                                <li data-id="827"><a href="javascript:void(0)">aaaaaaaaaaaaaaaa</a></li>
+                                <li data-id="826"><a href="javascript:void(0)">bbbbbbbbbbbbbbbb</a></li>
+                                <li data-id="825"><a href="javascript:void(0)">cccccccccccccccc</a></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--灰色半透明背景-->
+<div id="tabBG" onclick="changeIndexBG()" style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1040;background-color: #000000;opacity: .75;display: none"></div>
+
+<!--标题-->
+<div style="background-color: #cf2626;height: 50px;width: 100%;text-align: center;">
+    <p style="color: white;font-size: 22px;padding-top: 10px;">江南新城</p>
+</div>
+<div class="index_title">
+    <p style="font-size: 16px;">江南新城今日头条</p>
+    <img src="image/icon/1.png">
+    <!--查找-->
+    <img src="image/icon/2.png" style="float: right;margin-right: 20px" onclick="changeFind()">
+</div>
+
+<div id="topNav" class="container1">
+    <div class="swiper-container swiper1" id="topNavs">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide selected">全部</div>
+            <div class="swiper-slide">公告</div>
+            <div class="swiper-slide">好人好事</div>
+            <div class="swiper-slide">招商引资</div>
+            <div class="swiper-slide">办事指南</div>
+        </div>
+    </div>
+    <!-- swiper2 -->
+    <div class="swiper-container swiper2">
+        <div class="swiper-wrapper" style="margin-top: 45px">
+            <div class="swiper-slide swiper-no-swiping">
+                <div style="width: 100%;height: 100%;background-color: white;color: black">
+
+                    <!-- 选项卡下内容 -->
+                    <!-- 轮播图 -->
+                    <div style="display: block" id="allContent">
+                        <div id="index_Carousel" class="carousel slide">
+                            <!-- 轮播项目 -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="image/index3.jpg" alt="First">
+                                </div>
+                                <div class="item">
+                                    <img src="image/index4.jpg" alt="Second">
+                                </div>
+                                <div class="item">
+                                    <img src="image/index6.jpg" alt="Third">
+                                </div>
+                            </div>
+                            <!-- 轮播导航 -->
+                            <a class="carousel-control left" href="#index_Carousel" data-slide="prev"></a>
+                            <a class="carousel-control right" href="#index_Carousel" data-slide="next"></a>
+                        </div>
+                        <!--内容-->
+                        <div id="listIndex" style="padding: 5px 10px 25px 15px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide swiper-no-swiping" style="width: 100%;height: 100%;background-color: white;color: black">上面导航栏可以滑动2222</div>
+            <div class="swiper-slide swiper-no-swiping" style="width: 100%;height: 100%;background-color: white;color: black">内容 213213123</div>
+            <div class="swiper-slide swiper-no-swiping" style="width: 100%;height: 100%;background-color: white;color: black">内容 ressssssss</div>
+            <div class="swiper-slide swiper-no-swiping" style="width: 100%;height: 100%;background-color: white;color: black">内容 ffffffffffff</div>
+            <div class="swiper-slide swiper-no-swiping" style="width: 100%;height: 100%;background-color: white;color: black">内容 bbbbbbbbbbbbbbbbbvb</div>
+        </div>
+    </div>
+</div>
+<script src="layui/layui.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
