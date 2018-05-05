@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" style="margin: 0 auto;background-color: #f7f4f4">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>详情</title>
+</head>
+<link rel="stylesheet" href="CSS/index.css">
+<script src="js/jquery.min.js"></script>
+<body>
+
+<!-- 留言 -->
+<div id="liuyan_Content" style="display: none">
+    <form  action="#" method="get" onsubmit="submitInfo()">
+        <textarea id="content" style="padding: 10px;font-size: 14px;width: 265px;height: 150px;margin-top: 50px;margin-left: 30px;margin-right: 30px;position: fixed;z-index: 1045;border-radius: 5px"></textarea>
+        <input id="Button1" onclick="submitInfo()" type="button" value="提交" style="position: fixed;z-index: 1045;border-radius: 2px;font-size: 12px;width: 50px;height: 35px;margin-top: 260px;margin-left: 150px" />
+    </form>
+</div>
+<div id="tabBG" onclick="text(this)" style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1040;background-color: #000000;opacity: .75;display: none"></div>
+
+<!--标题-->
+<span style="position: absolute;z-index: 10;font-size: 24px;color: white;margin-top: 15px;margin-left: 20px">
+    <img src="image/icon/7.png" style="text-decoration: none;width: 20px" href="index.html">
+</span>
+<div class="title">
+    <p style="">详情</p>
+</div>
+
+<!--正文内容-->
+<div style="padding:0 5%;" id="zwContent">
+</div>
+
+<div class="con_icon">
+    <p style="margin-left: 33px;">220</p>
+    <img src="image/icon/3.png">
+    <p style="margin-left: 95px;">400</p>
+    <img src="image/icon/4.png" style="margin-left: 65px">
+    <p style="margin-left: 160px;" onclick="text(this)" id="dianzan">点赞</p>
+    <img src="image/icon/5.png" style="margin-left: 130px">
+    <span onclick="text(this)" id="more">更多内容</span>
+</div>
+
+<!-- 广告 -->
+<div style="width: 100%;margin-top: 60px;text-align: center">
+    <img src="image/activity1.jpeg"style="width: 95%;background-color: black;">
+</div>
+<!--<div id="qita">-->
+<!--留言部分-->
+<div style="text-align: center;color: #6e6e6e;font-size: 14px">
+    <p>--------------- 社区留言 ---------------</p>
+</div>
+<p style="font-size: 12px;position: absolute;margin-left: 320px;color: red;margin-top: 10px" id="liuyan" onclick="text(this)">留言</p>
+<div style="float: right;margin-right: 60px;">
+    <img src="image/icon/6.png" style="width: 30px;">
+</div>
+
+<!-- 留言 -->
+<div style="padding: 20px 30px 0 20px" id="listContent">
+</div>
+
+<div style="padding: 5px 30px 30px 20px;display: none" id="linshi">
+    <div class="ly_icon"></div>
+    <div style="margin-left: 60px" class="ly_content">
+        <span>22</span>
+        <img src="image/icon/5.png" style="width: 30px;float: right;">
+        <p style="color: red">鹿小葵</p>
+        <p id="lyContent"></p>
+        <p style="font-size: 12px">2018.03.04  20:18:00</p>
+    </div>
+    <hr>
+</div>
+<div style="height: 30px"></div>
+<!--</div>-->
+<script src="js/content.js"></script>
+</body>
+</html>
